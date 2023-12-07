@@ -5,8 +5,6 @@ import (
 )
 
 func main() {
-	fmt.Println("Solution I'm currently working on..")
-
     t := "35426"
 
     fmt.Println(largestOddNumber(t))
