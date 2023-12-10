@@ -2,17 +2,15 @@ package main
 
 import (
     "fmt"
-    "github.com/0xff3232/goleetcode/db/transposeMatrix"  // Assume this is the correct path
+    "github.com/0xff3232/goleetcode/db/funWithArrays/mergedZeros"  // Assume this is the correct path
 )
 
 func main() {
     fmt.Println("Solution I'm currently working on..")
+    nums := []int {0,1,0,3,12}
 
-    var x [][]int = [][]int{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}
-
-    t := transposeMatrix.TransposeMatrix(x)
-    fmt.Println("Original Matrix:")
-    fmt.Println(x)
-    fmt.Println("Transposed Matrix:")
+    t := mergedZeros.MergeZeros(nums)
+    
     fmt.Println(t)
+    
 }
