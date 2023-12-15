@@ -2,19 +2,15 @@ package main
 
 import (
 	"fmt"
-	"github.com/0xff3232/goleetcode/db/specialPositionsInBinaryMatrix"  // Assume this is the correct path
+
+	"github.com/0xff3232/goleetcode/db/strings/plusOne" // Assume this is the correct pat	
 )
 
 func main() {
     fmt.Println("Solution I'm currently working on..")
-
-	mat := [][]int{{1,0,0},{0,0,1},{1,0,0}}
+	test := []int {3,6,1,0}
 	
-	t := specialPositionsInBinaryMatrix.SpecialPositions(mat)
 
-
-	fmt.Println(t)
-
-
-    
+	t := plusOne.PlusOne(test)
+	fmt.Println(t) 
 }
