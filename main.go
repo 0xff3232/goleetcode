@@ -3,16 +3,20 @@ package main
 import (
 	"fmt"
 
-	"github.com/0xff3232/goleetcode/db/strings/spiralMatrix"
+	"github.com/0xff3232/goleetcode/db/designAFoodRatingSystem"
 )
 
 func main() {
     fmt.Println("Solution I'm currently working on..")
 
-	
-	mat := [][]int {{1,2,3},{4,5,6},{7,8,9}}
 
-	t := spiralMatrix.SpiralMatrix(mat)
+	t := designAFoodRatingSystem.Constructor([]string{"kimchi", "miso"},
+											[]string{"korean", "japanese"},
+											[]int{9, 12})
 	
-	fmt.Println(t) 
+
+
+	for foodName, rating := range t.FoodMap{
+		fmt.Printf("Name: %s, Rating: %d\n", foodName, rating.Rating)
+	}
 }
