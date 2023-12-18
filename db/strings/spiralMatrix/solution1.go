@@ -1,30 +1,60 @@
 package spiralMatrix
 
-import "fmt"
+func SpiralOrder(matrix [][]int) []int {
+    if len(matrix) == 0 {
+        return []int{}
+    }
 
-func SpiralMatrix(mat [][]int)[]int{
-    rows := len(mat)
-    cols := len(mat[0]) 
-    ans := []int{}
-    
-    // midPoint := FindMid(mat) ?
+    var result []int
+    /*
+    [1,2,3]
+    [4,5,6]
+    [7,8,9]
+    */
 
-    for r := 0; r < rows; r++ {
-        fmt.Println(mat[r])
-        for c := 0; c < cols; c++ {     
-            fmt.Println(mat[r][c])
-            // iterate till end of row
-            // then iterate till end of col until mid or /2 > right of
+    // Defining boundaries for our spiral circle.
+    // top, bottom = rows
+    // left, right = cols
+    top, bottom, left, right := 0, len(matrix)-1, 0, len(matrix[0])-1
 
-            // mat[1][2] -> mid
-            
-            // mat[0][0-2] [1,2,3]   +3    
-            // mat[1-2][2] [6,9]     +2
-            // mat[2][2-1] [8, 7]    -2
-            // mat[1][1]   [4]       -1
-            // mat[1][2]   [5]       +1 (if mid == mat[i][j]) end
+    for left <= right && top <= bottom { // case to stop and return ans
+
+        // Move right
+        // Since left is 0 and right is len(row) we iterate left <= right to get the whole first row
+        for i := left; i <= right; i++ {
+            result = append(result, matrix[top][i])
+        }
+        // we += to top so that it moves the top down from row 0 to row 1 (happens after we go the whole row)
+        top += 1 // [1,2,3]
+                //..[5]
+
+        // Move down
+        // i will start at 1, because of code above, we then iterate from 1[right] which would be the last col.
+        for i := top; i <= bottom; i++ {
+            result = append(result, matrix[i][right])
+        }
+        // Once we iterate col, we then minus right so it brings in that col to len(mat)-2
+        right -= 1 // [6, 9]
+
+        // These if statements (if top <= bottom and if left <= right),
+        // are used to determine whether there are still rows or columns left to traverse in the respective directions.
+        if top <= bottom {
+            // Move left
+            // go opposite way, use opposite logic.
+            for i := right; i >= left; i-- {
+                result = append(result, matrix[bottom][i])
+            }
+            bottom -= 1 // [8, 7]
+        }
+
+        if left <= right {
+            // Move up
+            // go opposite way, use opposite logic.
+            for i := bottom; i >= top; i-- {
+                result = append(result, matrix[i][left])
+            }
+            left += 1 // [4]
         }
     } 
-    return ans
+    return result
 }
-
